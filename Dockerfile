@@ -10,7 +10,8 @@ ADD sqoop-env.sh $SQOOP_HOME/
 RUN set -ex \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
-    && tar -zvxf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz \
+    && tar -zxf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz \
+    && rm sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz \
     && mv sqoop-1.4.7.bin__hadoop-2.6.0 /opt/sqoop \
     && mv $SQOOP_HOME/mysql-connector-java-5.1.38.jar $SQOOP_HOME/lib/ \
     && mv $SQOOP_HOME/sqoop-env.sh $SQOOP_HOME/conf/ \ 
